@@ -53,23 +53,23 @@ return [
 5.查询Elasticsearch
 
 ```php
-		//DSL直接查询
-		$result = \ES::select($dsl)
+//DSL直接查询
+$result = \ES::select($dsl)
 		
-		//支持分页
-		$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->forPage(11,1)->get();
-        $result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->offset(10)->limit(1)->get();
+//支持分页
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->forPage(11,1)->get();
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->offset(10)->limit(1)->get();
 
-		//指定返回的字段
-		$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->get(['country', 'create_time', 'req_flow']);
-        $result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->select(['country', 'create_time', 'req_flow'])->get();
+//指定返回的字段
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->get(['country', 'create_time', 'req_flow']);
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->select(['country', 'create_time', 'req_flow'])->get();
 		
-		//group by
-		$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->get();
+//group by
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->get();
 		
-		//group by sum
-        $result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->selectRaw('create_time,mtype,sum(req_flow) as req_flow,sum(flow) as flow')->get();
-        $result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->selectRaw('create_time,mtype,sum(req_flow) as req_flow')->get();
+//group by sum
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->selectRaw('create_time,mtype,sum(req_flow) as req_flow,sum(flow) as flow')->get();
+$result = \ES::table('index-20200914/flow_type')->where('host', 'www.baidu.com')->where('create_time', '>=', 1600048800)->where('create_time', '<=', 1600049100)->groupBy(['create_time', 'mtype'])->selectRaw('create_time,mtype,sum(req_flow) as req_flow')->get();
 ```
 
 #### 说明
