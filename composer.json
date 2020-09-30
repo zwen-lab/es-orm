@@ -1,0 +1,25 @@
+{
+    "name": "zwen-lab/es-orm",
+    "description": "PHP Elasticsearch ORM library for Laravel",
+    "keywords": [
+        "elasticsearch",
+        "orm",
+        "laravel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zwen",
+            "email": "291235020@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zwen\\EsOrm\\": "src/"
+        }
+    },
+    "require": {
+        "php":">=7.0",
+        "zwen-lab/sql-dsl": "0.0.3"
+    }
+}
