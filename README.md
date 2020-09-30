@@ -14,13 +14,25 @@ composer require zwen-lab/es-orm v0.0.1
 
 ### 使用（laravel）
 
-1.发布配置文件 elasticsearch.php
+1.添加provider
+
+```php
+\Zwen\EsOrm\EsServiceProvider::class,
+```
+
+2.配置门面
+
+```php
+'ES' => Zwen\EsOrm\Support\Facades\ES::class,
+```
+
+3.发布配置文件 elasticsearch.php
 
 ```
  php artisan vendor:publish
 ```
 
-2.配置文件说明
+4.配置文件修改
 
 ```php
 return [
@@ -36,17 +48,7 @@ return [
 ];
 ```
 
-3.添加provider
 
-```php
-\Zwen\EsOrm\EsServiceProvider::class,
-```
-
-4.配置门面
-
-```php
-'ES' => Zwen\EsOrm\Support\Facades\ES::class,
-```
 
 5.查询Elasticsearch
 
